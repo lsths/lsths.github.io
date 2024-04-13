@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSTHS About</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/res/images/LSTHS_logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a878311718.js" crossorigin="anonymous"></script>  
+    <link rel="stylesheet" href="https://use.typekit.net/kjw7oae.css">  
+</head>
+<body>
+    <header>
+        <nav>
+            <label id="schoolNameTopLeft">LSTHS</label>
+            <div class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="menu-options">
+                <li><a href="/index.html">Home</a></li>
+                <li class="active"><a href="/lsths.com/about.html">About</a></li>
+                <li><a href="/lsths.com/staff.html">Staff</a></li>
+                <li><a href="/lsths.com/students.html">Students</a></li>
+                <li><a href="/lsths.com/contact.html">Contacts</a></li>
+            </ul>
+        </nav>
+        <script>
+            const menuBtn = document.querySelector(".menu-btn");
+            const menu = document.querySelector(".menu-options");
+            menuBtn.onclick = ()=>{
+                menu.classList.toggle("active-nav");
+            }
+        </script>
+    </header>
+    <h1>LSTHS ABOUT</h1>
+</body>
+</html>
