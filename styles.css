@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+main {
+    margin-top: 7vw;
+}
+
 nav {
     position: fixed;
     top: 0;
@@ -12,6 +16,7 @@ nav {
     border-bottom-style: solid;
     border-bottom-width: 0.4rem;
     border-bottom-color: white;
+    z-index: 9999; 
 }
 
 nav ul{
@@ -47,7 +52,6 @@ nav ul li:hover:after {
 .active a{
     background-color: #32968c;
 }
-
 
 #schoolNameTopLeft {
     margin-left: 3%;
@@ -98,7 +102,7 @@ nav ul li {
 
 #line {
     width: 100%;
-    height: 2px;
+    height: .3vw;
     background-color: black;
 }
 #agent_header{
@@ -122,10 +126,6 @@ nav #icon{
 
 .logos img{
     width: 15vw;
-}
-
-main{
-    margin-top: 7vw;
 }
 
 .grade_section {
@@ -163,6 +163,7 @@ main{
 }
 
 .card{
+    margin-top: 2vw;
     display: none;
     padding: 10px;
     position: absolute;
@@ -214,21 +215,22 @@ main{
     display: block;
 }
 
-#grade_options{
+.grade_options table{
     width: 100%;
     border-style: solid;
-    border-width: 1px;
+    border-width: .2vw;
+    border-color: black;
 
 }
-#grade_options td{
+.grade_options td{
     border-style: solid;
-    border-width: 1px;
+    border-width: .1vw;
     border-color: black;
     text-align: center;
     width: 100vw;
 }
 
-#grade_options a{
+.grade_options a{
     text-decoration: none;
     color: black;
 }
@@ -237,8 +239,7 @@ main{
     top: 55%;
     position: absolute;
     margin-left: 5vw;
-    font-size: 2vw;
-    z-index: 20;       
+    font-size: 2vw;      
 }
 
 #contact p{
@@ -276,7 +277,36 @@ main{
     text-shadow: 3px 3px 5px #dfdfdf;
 }
 
+.back-up {
+    padding: .3vw;
+    padding-left: .7vw;
+    position: fixed;
+    bottom: 3vh;
+    right: 0;
+    width: 5vw;
+    height: 3.9vw;
+    background-color: #ddd;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border: 1px;
+    color: black;
+    font-size: 3vw;
+    text-align: left;
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+    display: none;
+}
+
+.back-up:hover {
+    opacity: 1;
+  }
+  
+.back-up.show {
+    display: block;
+  }
+
 @media (max-width: 900px) {
+
     #contact {
         position: relative;
         font-size: 3vw;
@@ -295,7 +325,7 @@ main{
         right: 5%;
     }
 }
-@media (max-width: 520px) {
+@media (max-width: 600px) {
     nav ul li{
         display: block;
         text-align: center;
@@ -347,7 +377,7 @@ main{
     } 
 
     main {
-        margin-top: 2.5em;
+        margin-top: 10vw;
     }
 
     .student_table th{
@@ -361,5 +391,14 @@ main{
     #contact {
         position: relative;
         font-size: 3.5vw;
+    }
+
+    .grade_options table {
+        border-width: .4vw;
+    }
+    .grade_options td{
+        display: block;
+        width: 100%;
+        border-width: .3vw;
     }
 }
