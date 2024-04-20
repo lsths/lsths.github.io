@@ -14,7 +14,7 @@ nav {
     background-color: #218279;
     width: 100%;
     border-bottom-style: solid;
-    border-bottom-width: 0.4rem;
+    border-bottom-width: .5vw;
     border-bottom-color: white;
     z-index: 9999; 
 }
@@ -239,7 +239,8 @@ nav #icon{
     top: 55%;
     position: absolute;
     margin-left: 5vw;
-    font-size: 2vw;      
+    font-size: 2vw;   
+    z-index: 10;   
 }
 
 #contact p{
@@ -277,34 +278,6 @@ nav #icon{
     text-shadow: 3px 3px 5px #dfdfdf;
 }
 
-.back-up {
-    padding: .3vw;
-    padding-left: .7vw;
-    position: fixed;
-    bottom: 3vh;
-    right: 0;
-    width: 5vw;
-    height: 3.9vw;
-    background-color: #ddd;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    border: 1px;
-    color: black;
-    font-size: 3vw;
-    text-align: left;
-    opacity: 0.5;
-    transition: opacity 0.2s ease-in-out;
-    display: none;
-}
-
-.back-up:hover {
-    opacity: 1;
-  }
-  
-.back-up.show {
-    display: block;
-  }
-
 @media (max-width: 900px) {
 
     #contact {
@@ -326,6 +299,9 @@ nav #icon{
     }
 }
 @media (max-width: 600px) {
+    nav {
+        border-bottom-width: 1.3vw;
+    }
     nav ul li{
         display: block;
         text-align: center;

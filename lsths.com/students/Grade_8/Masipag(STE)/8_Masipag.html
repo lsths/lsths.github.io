@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>8-Masipag</title>
     <link rel="stylesheet" href="/styles.css">
-    <link rel="shortcut icon" type="image/x-icon" href="/res/images/LSTHS_logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/res/images/favicon.ico?">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a878311718.js" crossorigin="anonymous"></script>  
     <link rel="stylesheet" href="https://use.typekit.net/kjw7oae.css">
@@ -25,14 +25,6 @@
                 <li><a href="/lsths.com/contact.html">Contacts</a></li>
             </ul>
         </nav>
-        <script>
-            const menuBtn = document.querySelector(".menu-btn");
-            const menu = document.querySelector(".menu-options");
-            menuBtn.onclick = ()=>{
-                menu.classList.toggle("active-nav");
-            }
-            
-        </script>
     </header>
     <main>
         <h1 class="grade_section">8-Masipag</h1>
@@ -311,20 +303,9 @@
             <p id="Ssex">Sex: Female</p>
             <p id="Sbday">Birthdate: August 4, 2010</p>
         </div>
-        <script>
-            const tableCell= document.querySelectorAll("td");
-        
-            tableCell.forEach(cell => {
-              cell.addEventListener('click', () => {
-                const allCards = document.querySelectorAll(".card");
-                allCards.forEach(card => card.classList.remove("show_card")); // Hide all cards
-        
-                const cardToShow = document.querySelector(`.card#${cell.dataset.cardId}-card`);
-                cardToShow.classList.add("show_card"); // Show the clicked cell's card
-              });
-            });
-          </script>
     </main>
-    
+    <footer>
+        <script src="/script.js"></script>
+    </footer>
 </body>
 </html>
