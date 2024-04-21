@@ -235,7 +235,7 @@ nav #icon{
     color: black;
 }
 
-#contact {
+.contact {
     top: 55%;
     position: absolute;
     margin-left: 5vw;
@@ -243,23 +243,23 @@ nav #icon{
     z-index: 10;   
 }
 
-#contact p{
+.contact p{
     margin-bottom: 2vw;
 }
 
-#contact p i{
+.contact p i{
     margin-right: 1vw;
 }
 
-#contact p a{
+.contact p a{
     text-decoration: none;
     color: black;    
 }
-#map {
+.map {
     padding-bottom: 25%;
     position: relative;
 }
-#map iframe{
+.map iframe{
     height: 100%;
     width: 40%;
     right: 3vw;
@@ -273,26 +273,85 @@ nav #icon{
 
 }
 
-#contact p:hover{
+.contact p:hover{
     transform: translateY(-20%);
     text-shadow: 3px 3px 5px #dfdfdf;
 }
 
-@media (max-width: 900px) {
+.contact_box {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    margin-left: 5vw;
+}
 
-    #contact {
+.contact_us {
+    height: 35vw;
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: -5vw;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px 10px#d5d5d5;
+}
+
+.contact_inputs {
+    outline: none;
+    border-style: solid;
+    border-color: black;
+    border-width: .2vw;
+    width: 95%;
+    height: 10%; 
+    padding-left: 25px; 
+    font-weight: 500; 
+    color:#666;
+    border-radius: 50px;
+}
+
+.contact_inputs:hover{
+    background-color: #ededed;
+}
+
+textarea.contact_inputs{
+    padding-left: 25px;
+    padding-top: 15px;
+    height: 50%;
+    border-radius: 15px;
+}
+@media (max-width: 900px) {
+    .contact_box {
+        margin-left: 5vw;
+        margin-right: 5vw;
+        margin-top: 15vw;
+        display: block;
+    }
+    .contact_us{
+        height: 60%;
+        width: 100%;
+    }
+
+    .contact_inputs {
+        height: 10%;
+    }
+    textarea.contact_inputs{
+        border-radius: 20px;
+    }
+    .contact {
         position: relative;
         font-size: 3vw;
     }
 
-    #map {
+    .map {
         margin-top: 5vh;
         display: flex;
         justify-content: center;
         padding-bottom: 50%;
         width: 100%;
     }
-    #map iframe{
+    .map iframe{
         height: 100%;
         width: 90%;
         right: 5%;
@@ -364,7 +423,7 @@ nav #icon{
         font-size: 2vw;
     }
 
-    #contact {
+    .contact {
         position: relative;
         font-size: 3.5vw;
     }
