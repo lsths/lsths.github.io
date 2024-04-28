@@ -1,41 +1,43 @@
 // Navbar
 const menuBtn = document.querySelector(".menu-btn");
 const menu = document.querySelector(".menu-options");
-menuBtn.onclick = ()=>{
-    menu.classList.toggle("active-nav");
-}
+menuBtn.onclick = () => {
+  menu.classList.toggle("active-nav");
+};
 
 // Student Selector
-const tableCell= document.querySelectorAll("td");
-        
-tableCell.forEach(cell => {
-    cell.addEventListener('click', () => {
-    const allCards = document.querySelectorAll(".card");
-    allCards.forEach(card => card.classList.remove("show_card")); // Hide all cards
+const tableCell = document.querySelectorAll("td");
 
-    const cardToShow = document.querySelector(`.card#${cell.dataset.cardId}-card`);
+tableCell.forEach((cell) => {
+  cell.addEventListener("click", () => {
+    const allCards = document.querySelectorAll(".card");
+    allCards.forEach((card) => card.classList.remove("show_card")); // Hide all cards
+
+    const cardToShow = document.querySelector(
+      `.card#${cell.dataset.cardId}-card`
+    );
     cardToShow.classList.add("show_card"); // Show the clicked cell's card
-    });
+  });
 });
 
 // Month conversion function
 function monthTextToNumber(monthText) {
-    var monthNames = {
-      "January": 1, 
-      "February": 2, 
-      "March": 3, 
-      "April": 4, 
-      "May": 5, 
-      "June": 6,
-      "July": 7, 
-      "August": 8, 
-      "September": 9, 
-      "October": 10, 
-      "November": 11, 
-      "December": 12
-    };
-    
-    return monthNames[monthText] || null; // Return null if monthText not found
+  var monthNames = {
+    January: 1,
+    February: 2,
+    March: 3,
+    April: 4,
+    May: 5,
+    June: 6,
+    July: 7,
+    August: 8,
+    September: 9,
+    October: 10,
+    November: 11,
+    December: 12,
+  };
+
+  return monthNames[monthText] || null; // Return null if monthText not found
 }
 
 // Loop through all student cards
@@ -51,7 +53,7 @@ for (var i = 0; i < studentCards.length; i++) {
     var birthdateText = birthdateElement.textContent.trim();
 
     // Split the text based on commas and spaces
-    var birthdateParts = birthdateText.split(/[,:\s]+/);  // Regular expression for comma followed by one or more spaces
+    var birthdateParts = birthdateText.split(/[,:\s]+/); // Regular expression for comma followed by one or more spaces
 
     // Extract month text, day, and year
     var monthText = monthTextToNumber(birthdateParts[1]); // Convert month text to number
@@ -61,7 +63,7 @@ for (var i = 0; i < studentCards.length; i++) {
     // Calculate age
     var today = new Date();
     var age = today.getFullYear() - year;
-    var month = today.getMonth() - (new Date(year, monthText - 1)).getMonth();
+    var month = today.getMonth() - new Date(year, monthText - 1).getMonth();
 
     if (month < 0 || (month === 0 && today.getDate() < day)) {
       age--;
@@ -69,7 +71,6 @@ for (var i = 0; i < studentCards.length; i++) {
 
     // Update the age element
     ageElement.innerHTML = "Age: " + age;
-
   } else {
     console.warn("Student card " + (i + 1) + " missing birthdate element.");
   }

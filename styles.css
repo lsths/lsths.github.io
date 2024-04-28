@@ -4,11 +4,11 @@
     box-sizing: border-box;
 }
 
-main {
+main{
     margin-top: 7vw;
 }
 
-nav {
+nav{
     position: fixed;
     top: 0;
     background-color: #218279;
@@ -27,7 +27,7 @@ nav ul{
 
 }
 nav ul a{
-    font-size: 3vw;
+    font-size: 2vw;
     font-family: "Bebas Neue", sans-serif;
     color: white;
     text-decoration: none;    
@@ -35,7 +35,7 @@ nav ul a{
     padding: 1.4vw;
 }
 
-nav ul li:after {
+nav ul li:after{
     content: '';
     display: block;
     margin: auto;
@@ -44,7 +44,7 @@ nav ul li:after {
     background: transparent;
     transition: width .5s ease, background-color .5s ease;
   }
-nav ul li:hover:after {
+nav ul li:hover:after{
     width: 100%;
     background: #51cfc3;
   }
@@ -53,15 +53,15 @@ nav ul li:hover:after {
     background-color: #32968c;
 }
 
-#schoolNameTopLeft {
+#schoolNameTopLeft{
     margin-left: 3%;
     color: #c1f6ed;
-    font-size: 4.5vw;
+    font-size: 3.5vw;
     font-family: "Bebas Neue", sans-serif;
     float: left;
 }
 
-nav ul li {
+nav ul li{
     list-style:none;
     display: inline-block;
     text-align: left;
@@ -76,7 +76,7 @@ nav ul li {
     margin-top: -3.5vw;
 }
 
-#logo {
+#logo{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,8 +84,8 @@ nav ul li {
     margin-right: 2vw;
 }
 
-.agent {
-    margin-top: 11vh;
+.agent{
+    margin-top: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,7 +100,7 @@ nav ul li {
     left: 1vw;
 }
 
-#line {
+#line{
     width: 100%;
     height: .3vw;
     background-color: black;
@@ -109,7 +109,7 @@ nav ul li {
     font-size: 2.5vw;
 }
 
-#agent_footer {
+#agent_footer{
     font-size: 3vw;
 }
 nav #icon{
@@ -117,22 +117,23 @@ nav #icon{
     font-size: 40px;
 }
 
-.logos {
+.logos{
     display: flex;
     justify-content: space-evenly;
     margin-top: 2vh;
     margin-left: auto;
+    margin-bottom: 6vh;
 }
 
 .logos img{
     width: 15vw;
 }
 
-.grade_section {
+.grade_section{
     display: flex;
     justify-content: center;
 }
-.section_adviser {
+.section_adviser{
     display: flex;
     justify-content: center;
 }
@@ -235,7 +236,7 @@ nav #icon{
     color: black;
 }
 
-.contact {
+.contact{
     top: 55%;
     position: absolute;
     margin-left: 5vw;
@@ -255,7 +256,7 @@ nav #icon{
     text-decoration: none;
     color: black;    
 }
-.map {
+.map{
     padding-bottom: 25%;
     position: relative;
 }
@@ -278,14 +279,14 @@ nav #icon{
     text-shadow: 3px 3px 5px #dfdfdf;
 }
 
-.contact_box {
+.contact_box{
     height: 100vh;
     display: flex;
     align-items: center;
     margin-left: 5vw;
 }
 
-.contact_us {
+.contact_us{
     height: 35vw;
     width: 45vw;
     display: flex;
@@ -298,7 +299,7 @@ nav #icon{
     box-shadow: 0px 5px 10px 10px#d5d5d5;
 }
 
-.contact_inputs {
+.contact_inputs{
     outline: none;
     border-style: solid;
     border-color: black;
@@ -321,8 +322,32 @@ textarea.contact_inputs{
     height: 50%;
     border-radius: 15px;
 }
+
+.homepage_bio{
+    margin: 3vw;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.LSTHS_campaign{
+    display: block;
+}
+
+.LSTHS_campaign video{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*footer{
+    position: relative;
+    bottom: 0;  
+    background-color: #218279;
+    color: white;
+    height: 10vh;
+}*/
+
 @media (max-width: 900px) {
-    .contact_box {
+    .contact_box{
         margin-left: 5vw;
         margin-right: 5vw;
         margin-top: 15vw;
@@ -333,18 +358,18 @@ textarea.contact_inputs{
         width: 100%;
     }
 
-    .contact_inputs {
+    .contact_inputs{
         height: 10%;
     }
     textarea.contact_inputs{
         border-radius: 20px;
     }
-    .contact {
+    .contact{
         position: relative;
         font-size: 3vw;
     }
 
-    .map {
+    .map{
         margin-top: 5vh;
         display: flex;
         justify-content: center;
@@ -358,7 +383,7 @@ textarea.contact_inputs{
     }
 }
 @media (max-width: 600px) {
-    nav {
+    nav{
         border-bottom-width: 1.3vw;
     }
     nav ul li{
@@ -392,7 +417,7 @@ textarea.contact_inputs{
         background-color: #32968c;
         padding: 10px;
     }
-    .menu-btn {
+    .menu-btn{
         cursor:pointer;
         display: block;
         float: right;
@@ -411,7 +436,7 @@ textarea.contact_inputs{
         display: block;
     } 
 
-    main {
+    main{
         margin-top: 10vw;
     }
 
@@ -423,12 +448,12 @@ textarea.contact_inputs{
         font-size: 2vw;
     }
 
-    .contact {
+    .contact{
         position: relative;
         font-size: 3.5vw;
     }
 
-    .grade_options table {
+    .grade_options table{
         border-width: .4vw;
     }
     .grade_options td{
