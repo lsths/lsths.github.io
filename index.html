@@ -16,7 +16,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/res/images/favicon.ico?">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a878311718.js" crossorigin="anonymous"></script>  
-    <link rel="stylesheet" href="https://use.typekit.net/kjw7oae.css">  
+    <link rel="stylesheet" href="https://use.typekit.net/kjw7oae.css">
 </head>
 <body>
     <header>
@@ -52,30 +52,31 @@
         </div>
         <div class="homepage_bio">
             <h2>What is LSTHS?</h2>
-            <p style="margin-left: 3vw; text-indent: 3vw;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, reiciendis aliquid tempore laboriosam optio quos quidem, rerum totam temporibus enim deserunt magni illo vel nesciunt cum pariatur accusamus et exercitationem!
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, reiciendis aliquid tempore laboriosam optio quos quidem, rerum totam temporibus enim deserunt magni illo vel nesciunt cum pariatur accusamus et exercitationem!
             Ipsam doloremque, velit suscipit blanditiis repellendus laudantium eum rem impedit accusantium atque, esse temporibus itaque quibusdam, minus est modi beatae nisi hic nemo eaque mollitia laborum quod? Saepe, ut soluta!
             Rem hic molestiae molestias rerum atque quo pariatur? Modi, asperiores reiciendis, nulla assumenda autem qui doloremque sed inventore libero eius vero saepe suscipit! Provident, iste praesentium assumenda error aut nulla.
             Suscipit, maxime officia. Corrupti similique, dolore eos sed adipisci voluptatum provident id dolorem asperiores unde magni. Ipsa temporibus tempore, fugit, eaque nisi atque laboriosam omnis facere maiores dolor nihil ullam?
             Id ducimus error quae neque et, inventore earum minus, distinctio veritatis, impedit similique voluptatibus. Dolores amet explicabo perferendis aut ullam reiciendis nemo laborum est non, numquam sequi provident? Perspiciatis, repudiandae.</p>    
         </div>
         <div class="LSTHS_campaign">
-            <video id="myVideo" width="80%" autoplay muted loop controls>
-                <source src="/res/videos/LSTHS_campaign.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <script>
-                var video = document.getElementById("myVideo");
-                video.addEventListener("loadedmetadata", function() {
-                  // Set volume to desired level (between 0 and 1)
-                  video.volume = 0.3; // Adjust this value for your desired volume (e.g., 0.2 for 20%)
-                  video.muted = true; // Unmute the video after setting volume
-                });
-              </script>
-        </div>
+            <div class="video_container">
+                <div id="video_player"></div>
+            </div>
+            <div class="video_controls">
+                <div class="pause">
+                    <button type="button" id="playBtn" class="hidden"><i class="fa-solid fa-play"></i></button>
+                    <button type="button" id="pauseBtn"><i class="fa-solid fa-pause"></i></button>
+                </div>
+                <div class="volume">
+                    <button type="button" id="unmuteBtn" class="hidden"><i class="fa-solid fa-volume-high"></i></button>
+                    <button type="button" id="muteBtn"><i class="fa-solid fa-volume-xmark"></i></button>
+                </div>    
+            </div>
+        </div>          
     </main>
     <footer>
-
         <script src="/script.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
     </footer>
 </body>
 </html>

@@ -11,16 +11,16 @@ const tableCell = document.querySelectorAll("td");
 tableCell.forEach((cell) => {
   cell.addEventListener("click", () => {
     const allCards = document.querySelectorAll(".card");
-    allCards.forEach((card) => card.classList.remove("show_card")); // Hide all cards
+    allCards.forEach((card) => card.classList.remove("show_card"));
 
     const cardToShow = document.querySelector(
       `.card#${cell.dataset.cardId}-card`
     );
-    cardToShow.classList.add("show_card"); // Show the clicked cell's card
+    cardToShow.classList.add("show_card");
   });
 });
 
-// Month conversion function
+// Age Calculator
 function monthTextToNumber(monthText) {
   var monthNames = {
     January: 1,
@@ -37,30 +37,21 @@ function monthTextToNumber(monthText) {
     December: 12,
   };
 
-  return monthNames[monthText] || null; // Return null if monthText not found
+  return monthNames[monthText] || null; 
 }
 
-// Loop through all student cards
-var studentCards = document.querySelectorAll(".card"); // Select all elements with class "card" (assuming all student cards have this class)
-
+var studentCards = document.querySelectorAll(".card"); 
 for (var i = 0; i < studentCards.length; i++) {
   var studentCard = studentCards[i];
-  var birthdateElement = studentCard.querySelector("#Sbday"); // Find the element with id "Sbday" within the card
-  var ageElement = studentCard.querySelector("#Sage"); // Find the element with id "Sage" within the card
-
+  var birthdateElement = studentCard.querySelector("#Sbday"); 
+  var ageElement = studentCard.querySelector("#Sage"); 
   if (birthdateElement) {
-    // Extract the birthdate text
     var birthdateText = birthdateElement.textContent.trim();
+    var birthdateParts = birthdateText.split(/[,:\s]+/);
+    var monthText = monthTextToNumber(birthdateParts[1]); 
+    var day = parseInt(birthdateParts[2]); 
+    var year = birthdateParts[3];
 
-    // Split the text based on commas and spaces
-    var birthdateParts = birthdateText.split(/[,:\s]+/); // Regular expression for comma followed by one or more spaces
-
-    // Extract month text, day, and year
-    var monthText = monthTextToNumber(birthdateParts[1]); // Convert month text to number
-    var day = parseInt(birthdateParts[2]); // Convert day string to number
-    var year = birthdateParts[3]; // Convert year string to number
-
-    // Calculate age
     var today = new Date();
     var age = today.getFullYear() - year;
     var month = today.getMonth() - new Date(year, monthText - 1).getMonth();
@@ -69,9 +60,70 @@ for (var i = 0; i < studentCards.length; i++) {
       age--;
     }
 
-    // Update the age element
     ageElement.innerHTML = "Age: " + age;
   } else {
     console.warn("Student card " + (i + 1) + " missing birthdate element.");
   }
+}
+
+// Custom video controls
+var tag = document.createElement("script")
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+let player;
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('video_player', {
+        videoId: 'n-s2XShlXVY',
+        playerVars: {
+            autoplay: 1,
+            controls: 0,
+            mute: 1,
+            loop: 1,
+            rel: 0,
+            playlist: 'n-s2XShlXVY',
+        },
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+function onPlayerReady(event) {
+  event.target.playVideo();
+}
+
+function onPlayerReady(event) {
+  const playBtn = document.getElementById('playBtn');
+  const pauseBtn = document.getElementById('pauseBtn');
+  const unmuteBtn = document.getElementById('unmuteBtn');
+  const muteBtn = document.getElementById('muteBtn');
+  const expandBtn = document.getElementById('expandBtn');
+  const compressBtn = document.getElementById('compressBtn');
+
+  playBtn.addEventListener('click', function () {
+      player.playVideo();
+      playBtn.classList.add("hidden")
+      pauseBtn.classList.remove("hidden")
+  });
+
+  pauseBtn.addEventListener('click', function () {
+      player.pauseVideo();
+      pauseBtn.classList.add("hidden")
+      playBtn.classList.remove("hidden")
+  });
+
+  unmuteBtn.addEventListener('click', function () {
+      player.mute();
+      unmuteBtn.classList.add("hidden")
+      muteBtn.classList.remove("hidden")
+  });
+
+  muteBtn.addEventListener('click', function () {
+      player.unMute();
+      muteBtn.classList.add("hidden")
+      unmuteBtn.classList.remove("hidden")
+  });
 }
