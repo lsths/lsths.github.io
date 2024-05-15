@@ -7,10 +7,11 @@
 
 html, body:not([style*=font-family]){
     font-family: "source-sans-pro", sans-serif;
+    width: 100%;
 }
 
 main{
-    margin-top: 7vw;
+    margin-top: 5.5vw;
 }
 
 nav{
@@ -80,7 +81,7 @@ nav ul li{
 
 /* Homepgae (index.html) */
 #homepage_banner{
-    margin-top: -3.3vw;
+    margin-top: -1.8vw;
 }
 
 #logo{
@@ -92,7 +93,7 @@ nav ul li{
 }
 
 .agent{
-    margin-top: 10vh;
+    margin-top: 8.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,6 +137,68 @@ nav #icon{
     width: 15vw;
 }
 
+.homepage_bio{
+    margin: 3vw;
+    text-align: center;
+    margin-top: 20vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.homepage_bio h2{
+    font-size: 5vw;
+    font-family: "source-sans-pro";
+    font-weight: 700;
+}
+.homepage_bio p{
+    margin-top: 5vh;
+    font-size: 1.5vw;
+    
+}
+
+.LSTHS_campaign {
+    margin-top: 20vh;
+    width: 100%;
+
+}
+.video_container{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 0;
+    padding-bottom: 39.5%;
+    overflow: hidden;
+}
+
+.video_container iframe,
+.video_container object,
+.video_container embed{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video_controls button.hidden{
+    display: none;
+}
+.LSTHS_campaign .video_controls button{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.LSTHS_campaign .video_controls{
+    position: relative;
+    left: -2vw;
+    display: flex;
+    justify-content: space-around;
+}
 
 /* All sections */
 .grade_section{
@@ -225,6 +288,7 @@ nav #icon{
     display: block;
 }
 
+/* Grade Option Table (students.html)*/
 .grade_options table{
     width: 100%;
     border-style: solid;
@@ -245,16 +309,20 @@ nav #icon{
     color: black;
 }
 
+/* Contacts (contact.html)*/
 .contact{
-    top: 55%;
-    position: absolute;
-    margin-left: 5vw;
-    font-size: 2vw;   
+    top: 5vw;
+    position: relative;
+    margin-left: 4vw;
+    font-size: 1.8vw;   
     z-index: 10;   
+    width: 49%;
 }
 
 .contact p{
-    margin-bottom: 2vw;
+    margin-bottom: 1.5vw;
+    transition: transform.3s ease;
+    width:fit-content;
 }
 
 .contact p i{
@@ -265,15 +333,17 @@ nav #icon{
     text-decoration: none;
     color: black;    
 }
+
 .map{
-    padding-bottom: 25%;
-    position: relative;
+    position:static;
+    width: 50%;
+
 }
 .map iframe{
-    height: 100%;
+    height: 50%;
     width: 40%;
     right: 3vw;
-    top: 0;
+    top: 40vh;
     position: absolute;
     border-style: solid;
     border-width: 15px;
@@ -285,14 +355,17 @@ nav #icon{
 
 .contact p:hover{
     transform: translateY(-20%);
-    text-shadow: 3px 3px 5px #dfdfdf;
+    text-shadow: 3px 3px 5px #c4c4c4;
 }
 
+
 .contact_box{
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
     margin-left: 5vw;
+    margin-top: 20vw;
+    margin-bottom: 9vw;
 }
 
 .contact_us{
@@ -332,51 +405,10 @@ textarea.contact_inputs{
     border-radius: 15px;
 }
 
-.homepage_bio{
-    margin: 3vw;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.LSTHS_campaign {
-    width: 100%;
-}
-.video_container{
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
-    height: 0;
-    padding-bottom: 39.5%;
-    overflow: hidden;
-}
-
-.video_container iframe,
-.video_container object,
-.video_container embed{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.video_controls button.hidden{
-    display: none;
-}
-.LSTHS_campaign .video_controls button{
-    position: absolute;
-    background-color: transparent;
-    border: none;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    font-size: 1.7rem;
-}
-
-.LSTHS_campaign .video_controls{
-    position: relative;
-    left: -2vw;
+/* Staff */
+.School_Head {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 
@@ -422,6 +454,10 @@ textarea.contact_inputs{
         height: 100%;
         width: 90%;
         right: 5%;
+    }
+    .video_container{
+        width: 80%;
+        padding-bottom: 45%;
     }
 }
 @media (max-width: 600px) {
@@ -508,10 +544,15 @@ textarea.contact_inputs{
     }
     
     .LSTHS_campaign .video_controls{
-        left: -3vw;
+        left: -5vw;
     }
 
     .homepage_bio p{
         font-size: 3vw;
+    }
+
+    .video_container{
+        width: 90%;
+        padding-bottom: 50.25%;
     }
 }

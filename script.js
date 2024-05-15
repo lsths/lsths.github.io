@@ -78,6 +78,7 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('video_player', {
         videoId: 'n-s2XShlXVY',
         playerVars: {
+            hd: 1,
             autoplay: 1,
             controls: 0,
             mute: 1,
@@ -100,30 +101,54 @@ function onPlayerReady(event) {
   const pauseBtn = document.getElementById('pauseBtn');
   const unmuteBtn = document.getElementById('unmuteBtn');
   const muteBtn = document.getElementById('muteBtn');
-  const expandBtn = document.getElementById('expandBtn');
-  const compressBtn = document.getElementById('compressBtn');
+
+  let Playing = false; 
+  let Muted;
+  function checkPlayerState() {
+    Playing = player.getPlayerState() === YT.PlayerState.PLAYING;
+    Muted = player.isMuted();
+    updateButtonVisibility(Playing, Muted);
+  }
+  checkPlayerState();
+  setInterval(checkPlayerState, 1);
+
+  function updateButtonVisibility(Playing, Muted) {
+    playBtn.classList.toggle("hidden", Playing);
+    pauseBtn.classList.toggle("hidden", !Playing);
+    unmuteBtn.classList.toggle("hidden", Muted);
+    muteBtn.classList.toggle("hidden", !Muted);
+  }  
 
   playBtn.addEventListener('click', function () {
+    if (!Playing) {
       player.playVideo();
-      playBtn.classList.add("hidden")
-      pauseBtn.classList.remove("hidden")
+      Playing = true;
+    }
+    updateButtonVisibility(Playing);
   });
 
   pauseBtn.addEventListener('click', function () {
+    if (Playing) {
       player.pauseVideo();
-      pauseBtn.classList.add("hidden")
-      playBtn.classList.remove("hidden")
+      Playing = false;
+    }
+    updateButtonVisibility(Playing);
   });
 
   unmuteBtn.addEventListener('click', function () {
+    if (!Muted) {
       player.mute();
-      unmuteBtn.classList.add("hidden")
-      muteBtn.classList.remove("hidden")
+      Muted = true;
+    }
+    updateButtonVisibility(Muted)
   });
 
   muteBtn.addEventListener('click', function () {
+    if (Muted) {
       player.unMute();
-      muteBtn.classList.add("hidden")
-      unmuteBtn.classList.remove("hidden")
+      Muted = false;
+    }
+      updateButtonVisibility(Muted)
   });
 }
+
