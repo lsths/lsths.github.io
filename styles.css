@@ -6,7 +6,7 @@
 }
 
 html, body:not([style*=font-family]){
-    font-family: "source-sans-pro", sans-serif;
+    font-family: "Source-Sans-Pro", sans-serif;
     width: 100%;
 }
 
@@ -14,42 +14,45 @@ main{
     margin-top: 5.5vw;
 }
 
-nav{
+nav {
     position: fixed;
     top: 0;
-    background-color: #218279;
     width: 100%;
-    border-bottom-style: solid;
-    border-bottom-width: .3vw;
-    border-bottom-color: white;
-    z-index: 9999; 
+    background-color: #218279;
+    border-bottom: 0.3vw solid white;
+    z-index: 9999;
 }
 
-nav ul{
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     margin-top: 1vw;
     color: white;
-    float: right;
-    display: inline-flex;
-
 }
-nav ul a{
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul a {
     font-size: 2vw;
     font-family: "Bebas Neue", sans-serif;
     color: white;
-    text-decoration: none;    
-    text-align: center;
+    text-decoration: none;
     padding: 1.4vw;
 }
 
-nav ul li:after{
+nav ul li::after {
     content: '';
     display: block;
     margin: auto;
     height: 3px;
-    width: 0px;
+    width: 0;
     background: transparent;
-    transition: width .5s ease, background-color .5s ease;
-  }
+    transition: width 0.5s ease, background-color 0.5s ease;
+}
+
 nav ul li:hover:after{
     width: 100%;
     background: #51cfc3;
@@ -59,18 +62,12 @@ nav ul li:hover:after{
     background-color: #32968c;
 }
 
-#schoolNameTopLeft{
+#schoolNameTopLeft {
     margin-left: 3%;
     color: #c1f6ed;
     font-size: 3.5vw;
     font-family: "Bebas Neue", sans-serif;
     float: left;
-}
-
-nav ul li{
-    list-style:none;
-    display: inline-block;
-    text-align: left;
 }
 
 .menu-btn{
@@ -98,6 +95,7 @@ nav ul li{
     justify-content: center;
     align-items: center;
 }
+
 #agent_text{ 
     text-align: center;
     font-family: "source-sans-pro", sans-serif;
@@ -113,6 +111,7 @@ nav ul li{
     height: .3vw;
     background-color: black;
 }
+
 #agent_header{
     font-size: 2.5vw;
 }
@@ -138,7 +137,6 @@ nav #icon{
 }
 
 .homepage_bio{
-    margin: 3vw;
     text-align: center;
     margin-top: 20vh;
     margin-left: 5vw;
@@ -257,33 +255,31 @@ nav #icon{
 
 }
 
-.card #Sname{
+.card #Sname,
+.card #Sage,
+.card #Ssex,
+.card #Sbday {
     position: absolute;
     display: block;
+    left: 18vw;
+}
+
+.card #Sname {
     top: 10%;
-    left: 18vw;
 }
 
-.card #Sage{
-    position: absolute;
-    display: block;
+.card #Sage {
     top: 27%;
-    left: 18vw;
 }
 
-.card #Ssex{
-    position: absolute;
-    display: block;
+.card #Ssex {
     top: 44%;
-    left: 18vw;
 }
 
-.card #Sbday{
-    position: absolute;
-    display: block;
+.card #Sbday {
     top: 61%;
-    left: 18vw;
 }
+
 .card.show_card{
     display: block;
 }
@@ -467,6 +463,9 @@ textarea.contact_inputs{
         width: 80%;
         padding-bottom: 45%;
     }
+    .homepage_bio{
+        margin-top: 3vh;
+    }
 }
 @media (max-width: 600px) {
     nav{
@@ -556,7 +555,7 @@ textarea.contact_inputs{
     }
 
     .homepage_bio p{
-        font-size: 3vw;
+        font-size: 2.3vw;
     }
 
     .video_container{

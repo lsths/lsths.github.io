@@ -76,14 +76,15 @@ let player;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('video_player', {
-        videoId: 'n-s2XShlXVY',
+        videoId: '21_Oiwvg3IE',
         playerVars: {
-            autoplay: 1,
-            controls: 0,
-            mute: 1,
-            loop: 1,
-            rel: 0,
-            playlist: 'n-s2XShlXVY',
+          hd: 1,
+          autoplay: 1,
+          controls: 0,
+          mute: 1,
+          loop: 1,
+          rel: 0,
+          playlist: '21_Oiwvg3IE',
         },
         events: {
             'onReady': onPlayerReady
