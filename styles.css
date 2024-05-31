@@ -12,6 +12,7 @@ html, body:not([style*=font-family]){
 
 main{
     margin-top: 5.5vw;
+    width: 100%;
 }
 
 nav {
@@ -137,7 +138,6 @@ nav #icon{
 }
 
 .homepage_bio{
-    text-align: center;
     margin-top: 20vh;
     margin-left: 5vw;
     margin-right: 5vw;
@@ -411,11 +411,38 @@ textarea.contact_inputs{
 }
 
 /* Staff */
-.School_Head {
-    display: flex;
-    justify-content: center;
+.principal{
+    position: relative;
+    text-align: center;
 }
 
+.department .teacher{
+    display: inline-block;
+    width: 17vw;
+}
+
+.department .teacher img{
+    width: 17vw;
+    display: flex;
+}
+
+.department .teacher p{
+    margin-top: -0.5vw;
+    font-size: 1.8vw;
+    text-align: center;
+}
+
+.department{
+    font-size: 1.7vw;
+    text-align: center;
+    position: relative;
+    margin-top: 10vw;
+}
+
+.spacor{
+    display: flex;
+    justify-content: space-between;
+}
 
 /*footer{
     position: relative;
