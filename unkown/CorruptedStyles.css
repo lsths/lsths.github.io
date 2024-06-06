@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+}
+
+main{
+    margin-top: 5.5vw;
+    width: 100%;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #00201d;
+    border-bottom: 0.3vw solid rgb(187, 187, 187);
+    z-index: 9999;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1vw;
+    color: rgb(210, 210, 210);
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul a{
+    font-size: 2vw;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-decoration: none;
+    padding: 1.4vw;
+}
+
+nav ul li::after{
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0;
+    background: transparent;
+    transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+nav ul li:hover:after{
+    width: 100%;
+    background: #b50220;
+}
+
+.active a{
+    background-color: #b90c0c;
+}
+
+#schoolNameTopLeft {
+    margin-left: 3%;
+    color: #630606;
+    font-size: 3.5vw;
+    float: left;
+}
+
+.menu-btn{
+    display:none;
+    color: white;
+}
+
+.Begin{
+    position: absolute;
+    color: #1ba007;
+    font-size: 7vw;
+    text-align: center;
+    top: 15vw;
+}

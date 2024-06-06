@@ -11,7 +11,7 @@ html, body:not([style*=font-family]){
 }
 
 main{
-    margin-top: 5.5vw;
+    margin-top: 5.7vw;
     width: 100%;
 }
 
@@ -20,7 +20,7 @@ nav {
     top: 0;
     width: 100%;
     background-color: #218279;
-    border-bottom: 0.3vw solid white;
+    border-bottom: 0.3vw solid #f4fffe;
     z-index: 9999;
 }
 
@@ -29,7 +29,7 @@ nav ul {
     justify-content: flex-end;
     align-items: center;
     margin-top: 1vw;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 nav ul li {
@@ -75,7 +75,6 @@ nav ul li:hover:after{
     display:none;
     color: white;
 }
-
 
 /* Homepgae (index.html) */
 #homepage_banner{
@@ -199,84 +198,73 @@ nav #icon{
 }
 
 /* All sections */
-.grade_section{
-    display: flex;
-    justify-content: center;
-}
 .section_adviser{
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
-.student_table{
+.students table{
     width: 100%;
     border-style: solid;
     border-color: black;
     border-width: 1px; 
 }
-.student_table th{
-    width: 50%;
-    border-style: solid;
-    border-width: 1px; 
-    font-size: 2em;
-}
 
-.student_table td{
+.students th,
+.students td{
     width: 50%;
     border-style: solid;
     border-width: 1px;
     font-size: 1.7vw;
 }
 
-.student_table td:hover{
+.students td:hover{
     background-color: #ebeaea;
     cursor: pointer;
 }
-
 .card{
-    margin-top: 2vw;
+    margin-top: 3vw;
     display: none;
     padding: 10px;
-    position: absolute;
+    position: relative;
     transform: translateY(0);
     left: 50%;
     transform: translateX(-50%);
     border-style: solid;
+    border-width: 2px;
     width: 50vw;
     background-color: white;
     font-size: 2vw;
+    margin-bottom: 3vw;
 }
 
 .card img{
-    display: flex;
     border-style: solid;
     border-width: 2px;
     width: 15vw;
-
 }
 
-.card #Sname,
-.card #Sage,
-.card #Ssex,
-.card #Sbday {
+.card .Sname,
+.card .Sage,
+.card .Ssex,
+.card .Sbday {
     position: absolute;
     display: block;
-    left: 18vw;
+    left: 35%;
 }
 
-.card #Sname {
+.card .Sname {
     top: 10%;
 }
 
-.card #Sage {
+.card .Sage {
     top: 27%;
 }
 
-.card #Ssex {
+.card .Ssex {
     top: 44%;
 }
 
-.card #Sbday {
+.card .Sbday {
     top: 61%;
 }
 
@@ -427,7 +415,7 @@ textarea.contact_inputs{
 }
 
 .department .teacher p{
-    margin-top: -0.5vw;
+    margin-top: -.3vw;
     font-size: 1.8vw;
     text-align: center;
 }
@@ -460,8 +448,10 @@ textarea.contact_inputs{
         display: block;
     }
     .contact_us{
-        height: 60%;
-        width: 100%;
+        top: 25vw;
+        height: 50vw;
+        width: 90vw;
+        margin-bottom: 29vw;
     }
 
     .contact_inputs{
@@ -476,16 +466,14 @@ textarea.contact_inputs{
     }
 
     .map{
-        width: 90%;
+        width: 90vw;
+        height: 50vw;
         position: absolute;
-        top: 170%;
+        top: 25vw;
         display: flex;
         justify-content: center;
     }
-    .map iframe{
-        height: 100%;
-        width: 100%;
-    }
+
     .video_container{
         width: 80%;
         padding-bottom: 45%;
@@ -496,7 +484,7 @@ textarea.contact_inputs{
 }
 @media (max-width: 600px) {
     nav{
-        border-bottom-width: 1.3vw;
+        border-bottom-width: .7vw;
     }
     nav ul li{
         display: block;
@@ -509,10 +497,10 @@ textarea.contact_inputs{
     }
     nav .menu-options{
         position: fixed;
-        top: 8vw;
+        top: 6.9vw;
         left: -100%;
         background-color:#218279;
-        width: 50%;
+        width: 43%;
         height: 100vh;
         max-width: 200px;
         display: block;
@@ -533,12 +521,12 @@ textarea.contact_inputs{
         cursor:pointer;
         display: block;
         float: right;
-        font-size: 5vw;
+        font-size: 3.7vw;
         margin: 1vw;
         margin-right: 5%;
     }
     #schoolNameTopLeft{
-        font-size: 6vw;
+        font-size: 5vw;
     }
 
     .agent{
@@ -552,12 +540,9 @@ textarea.contact_inputs{
         margin-top: 10vw;
     }
 
-    .student_table th{
-        font-size: 5vw;
-    }
-
-    .student_table td{
-        font-size: 2vw;
+    .students th,
+    .students td{
+        font-size: 2.3vw;
     }
 
     .contact{
@@ -590,8 +575,56 @@ textarea.contact_inputs{
         padding-bottom: 50.25%;
     }
 
+    .contact_us{
+        margin-top: -50vw;
+        height: 70vw;
+    }
+
+    .contact_box h2{
+        font-size: 5vw;
+    }
+
+    .contact_inputs{
+        border-radius: 7px;
+        margin-top: -2vw;
+    }
+    
+    textarea.contact_inputs{
+        border-radius: 7px;
+        padding-bottom: 20vw;
+        margin-bottom: -3vw;
+    }
+
     .contact-map .map{
-        left: 0;
-        width: 100%;
+        top: 30vw;
+        width: 90vw;
+        height: 60vw;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .map iframe{
+        border-width: 7px;
+    }
+
+    .section_adviser{
+        font-size: 2vw;
+    }
+
+    .card{
+        border-width: 1.5px;
+    }
+
+    .card img{
+        position: relative;
+        left: -1vw;
+        border-width: 1.5px;
+    }
+
+    .card .Sname,
+    .card .Sage,
+    .card .Ssex,
+    .card .Sbday {
+        left: 40%;
     }
 }
