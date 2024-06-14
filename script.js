@@ -152,3 +152,82 @@ function onPlayerReady(event) {
   });
 }
 
+// show fullow up question
+function showFollowUp(radioId, followUpDivClass) {
+  var followUpDiv = document.querySelector('.' + followUpDivClass);
+  if (document.getElementById(radioId).checked) {
+    followUpDiv.style.display = 'block';
+  }
+}
+
+function hideFollowUp(followUpDivClass) {
+  var followUpDiv = document.querySelector('.' + followUpDivClass);
+  followUpDiv.style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const currentAddressFields = {
+      houseNo: document.getElementById('house#'),
+      streetName: document.getElementById('st-Name'),
+      barangay: document.getElementById('brgy'),
+      municipalCity: document.getElementById('municipal-city'),
+      province: document.getElementById('province'),
+      country: document.getElementById('country'),
+      zipCode: document.getElementById('zipCode'),
+  };
+
+  const permanentAddressFields = {
+      houseNo: document.getElementById('Phouse#'),
+      streetName: document.getElementById('Pst-Name'),
+      barangay: document.getElementById('Pbrgy'),
+      municipalCity: document.getElementById('Pmunicipal-city'),
+      province: document.getElementById('Pprovince'),
+      country: document.getElementById('Pcountry'),
+      zipCode: document.getElementById('PzipCode'),
+  };
+
+  const sameWithCurrentAddressYes = document.getElementById('sameWithCurrentAddressYes');
+
+  sameWithCurrentAddressYes.addEventListener('change', () => {
+      if (sameWithCurrentAddressYes.checked) {
+          for (const key in currentAddressFields) {
+              if (currentAddressFields.hasOwnProperty(key) && permanentAddressFields.hasOwnProperty(key)) {
+                  permanentAddressFields[key].value = currentAddressFields[key].value;
+              }
+          }
+      }
+  });
+
+  for (const key in currentAddressFields) {
+      if (currentAddressFields.hasOwnProperty(key) && permanentAddressFields.hasOwnProperty(key)) {
+          currentAddressFields[key].addEventListener('input', () => {
+              if (sameWithCurrentAddressYes.checked) {
+                  permanentAddressFields[key].value = currentAddressFields[key].value;
+              }
+          });
+      }
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Get today's date
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+  var yyyy = today.getFullYear();
+
+  var maxDate = yyyy + '-' + mm + '-' + dd;
+
+  // Calculate the date 50 years ago
+  var fiftyYearsAgo = new Date(today.setFullYear(today.getFullYear() - 50));
+  var dd50 = String(fiftyYearsAgo.getDate()).padStart(2, '0');
+  var mm50 = String(fiftyYearsAgo.getMonth() + 1).padStart(2, '0'); // January is 0!
+  var yyyy50 = fiftyYearsAgo.getFullYear();
+
+  var minDate = yyyy50 + '-' + mm50 + '-' + dd50;
+
+  // Set the max and min attributes of the date input
+  var birthdateInput = document.getElementById('birthdate');
+  birthdateInput.setAttribute('max', maxDate);
+  birthdateInput.setAttribute('min', minDate);
+});
