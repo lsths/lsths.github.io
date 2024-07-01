@@ -204,7 +204,8 @@ nav #icon{
     border: none;
     color: rgb(0, 0, 0);
     cursor: pointer;
-    font-size: 1.7rem;
+    font-size: 2vw;
+    margin: .5vw;
 }
 
 .LSTHS_campaign .video_controls{
@@ -285,7 +286,7 @@ nav #icon{
     top: 61%;
 }
 
-.card.show_card{
+.card.active-card{
     display: block;
 }
 
@@ -461,18 +462,35 @@ textarea.contact_inputs{
     box-shadow: 0px 5px 10px 10px#d5d5d5;
 }
 
-.enrollmentForm .question input,
+.DepEd-logo-form{
+    width: 10vw; 
+    position: absolute; 
+    margin-left: 10vw; 
+    margin-top: -1vw;
+}
+
+.title-form{
+    text-align: center; 
+    margin-top: 2vw;
+    font-size: 2.5vw;
+}
+
+.enrollmentForm .question input:not(.radioButton),
 .enrollmentForm .question select{
     width: 100%;
-    height: 2.3vw;
+    min-height: 2.3vw;
     border-radius: 5px;
     border: solid 1px;
     flex: 2;
 }
 
-.enrollmentForm .question .radioButton{
-    width: 20px;
+.enrollmentForm .question .radioButton,
+.enrollmentForm .radioButton{
+    border: solid 1px;
+    width: 1.5vw;
+    height: 1.5vw;
 }
+
 .LRN_Returning{
     padding: .5vw;
     border: solid 2px;
@@ -482,6 +500,7 @@ textarea.contact_inputs{
     margin-right: 5vw;
     top: 0;
     margin-top: 13vw;
+    padding-bottom: 0;
 }
 
 .LRN_Returning .questions {
@@ -490,9 +509,7 @@ textarea.contact_inputs{
 }
 
 .LRN_Returning .question {
-    display: flex;
-    align-items: center;
-    margin-right: 100px;
+    margin-right: 25%;
 }
 
 .LRN_Returning .question p {
@@ -500,19 +517,19 @@ textarea.contact_inputs{
     margin-right: 10px;
 }
 
-.LRN_Returning .options {
-    display: flex;
-    align-items: center;
+.LRN_Returning .options{
+    margin-left: 15px;
+    margin-bottom: 10px;
 }
 
-.LRN_Returning .options label {
-    margin-left: 5px;
-    margin-right: 15px;
+.enrollmentForm {
+    display: inline-block;
+    top: 0;
 }
 
 .form{
     padding: 1.5vw;
-    margin-top: 1vw;
+    margin-top: 3vw;
     border: solid 2px;
 }
 
@@ -568,6 +585,16 @@ textarea.contact_inputs{
     border-color: #74c8ce;
 }
 
+.questionColumns{
+    padding-top: 1vw;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.questionColumn .question{
+    margin: 1vw;
+}
+
 /*footer{
     position: relative;
     bottom: 0;  
@@ -617,6 +644,21 @@ textarea.contact_inputs{
     .homepage_bio{
         margin-top: 3vh;
     }
+
+    .DepEd-logo-form{
+        margin-left: 5vw;
+    }
+    .row1 h2{
+        font-size: 2vw;
+    }
+
+    .form{
+        margin-top: 2.5vw;
+    }
+
+    .LRN_Returning .questions{
+        display: block;
+    }
 }
 @media (max-width: 600px) {
     nav{
@@ -634,9 +676,9 @@ textarea.contact_inputs{
     nav .menu-options{
         position: fixed;
         top: 6.9vw;
-        left: -100%;
+        left: -110%;
         background-color:#218279;
-        width: 45%;
+        width: 40%;
         height: 100vh;
         max-width: 225px;
         display: block;
@@ -644,7 +686,7 @@ textarea.contact_inputs{
     }
 
     .menu-options.active-nav{
-        left: 17%;
+        left: 20%;
     }
     .active a{
         background-color: transparent;
@@ -661,6 +703,11 @@ textarea.contact_inputs{
         margin: 1vw;
         margin-right: 5%;
     }
+    
+    .enroll{
+        margin-top: 1vw;
+    }
+
     #schoolNameTopLeft{
         font-size: 5vw;
     }
@@ -695,7 +742,7 @@ textarea.contact_inputs{
         border-width: .3vw;
     }
     .LSTHS_campaign .video_controls button{
-        font-size: 1.4rem;
+        font-size: 4vw;
     }
     
     .LSTHS_campaign .video_controls{
@@ -763,4 +810,85 @@ textarea.contact_inputs{
     .card .Sbday {
         left: 40%;
     }
+
+    .enroll{
+        margin-top: .6vw;
+        font-size: 3vw;
+        padding: .3vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+    .title-form{
+        font-size: 3.7vw;
+        margin-left: 10vw;
+    }
+
+    .DepEd-logo-form{
+        margin-left: 2vw;
+    }
+
+    .LRN_Returning{
+        position: relative;
+        margin-top: 3vw;
+        width: 100%;
+        font-size: 4vw;
+        margin-right: 0;
+        padding: 2vw;
+    }
+
+    .LRN_Returning .question p{
+        margin-left: 0;
+    }
+
+    .LRN_Returning .question{
+        display: block;
+    }
+
+    .enrollmentForm .question .radioButton,
+    .enrollmentForm .radioButton{
+        width: 5vw;
+        height: 5vw;
+    }
+    
+    .row1 h2{
+        font-size: 4vw;
+    }
+
+    .gradeLevelEnrollTo{
+        font-size: 4vw;
+    }
+
+    .enrollmentForm{
+        padding: 5vw;
+    }
+
+    .form{
+        font-size: 4vw;
+    }
+
+    .form h2{
+        font-size: 4vw;
+    }
+
+    .sub-title{
+        font-size: 1vw;
+    }
+
+    .questionRow,
+    .questionColumns{
+        display: block;
+    }
+    
+    .enrollmentForm .question input,
+    .enrollmentForm .question select{
+        width: 100%;
+        height: 8vw;
+        border-radius: 3px;
+        margin-top: 1vw;
+    }
+
+    .question{
+        margin-top: 3vw;
+    }
+    
 }

@@ -5,64 +5,96 @@ menuBtn.onclick = () => {
   menu.classList.toggle("active-nav");
 };
 
-// Student Selector
-const tableCell = document.querySelectorAll("td");
+function populateData(data) {
+  // Convert special characters like &ntilde; to their respective characters
 
-tableCell.forEach((cell) => {
-  cell.addEventListener("click", () => {
-    const allCards = document.querySelectorAll(".card");
-    allCards.forEach((card) => card.classList.remove("show_card"));
+  const rows = data.split('\n');
+  const maleData = [];
+  const femaleData = [];
 
-    const cardToShow = document.querySelector(
-      `.card#${cell.dataset.cardId}-card`
-    );
-    cardToShow.classList.add("show_card");
+  let currentGender = '';
+  rows.forEach(row => {
+      if (row.startsWith('Male:')) {
+          currentGender = 'male';
+      } else if (row.startsWith('Female:')) {
+          currentGender = 'female';
+      } else if (row.trim() && currentGender) {
+          let [originalName, birthdate] = row.split(' - ');
+
+          // Format name for card display
+          const cardName = formatNameForCard(originalName);
+
+          if (currentGender === 'male') {
+              maleData.push({ originalName, cardName, birthdate });
+          } else if (currentGender === 'female') {
+              femaleData.push({ originalName, cardName, birthdate });
+          }
+      }
   });
-});
 
-// Age Calculator
-function monthTextToNumber(monthText) {
-  var monthNames = {
-    January: 1,
-    February: 2,
-    March: 3,
-    April: 4,
-    May: 5,
-    June: 6,
-    July: 7,
-    August: 8,
-    September: 9,
-    October: 10,
-    November: 11,
-    December: 12,
-  };
+  // Populate the table
+  const tbody = document.querySelector('#studentsTable tbody');
+  const maxRows = Math.max(maleData.length, femaleData.length);
+  for (let i = 0; i < maxRows; i++) {
+      const tr = document.createElement('tr');
+      const maleTd = document.createElement('td');
+      const femaleTd = document.createElement('td');
 
-  return monthNames[monthText] || null; 
+      if (maleData[i]) {
+          maleTd.innerText = `${i + 1}. ${maleData[i].originalName.toUpperCase()}`;
+          updateCard(`student${i * 2 + 1}-card`, maleData[i].cardName, maleData[i].birthdate);
+      }
+      if (femaleData[i]) {
+          femaleTd.innerText = `${i + 1}. ${femaleData[i].originalName.toUpperCase()}`;
+          updateCard(`student${i * 2 + 2}-card`, femaleData[i].cardName, femaleData[i].birthdate);
+      }
+
+      tr.appendChild(maleTd);
+      tr.appendChild(femaleTd);
+      tbody.appendChild(tr);
+
+      // Add click event listeners to table cells
+      maleTd.addEventListener('click', () => showCard(`student${i * 2 + 1}-card`));
+      femaleTd.addEventListener('click', () => showCard(`student${i * 2 + 2}-card`));
+  }
 }
 
-var studentCards = document.querySelectorAll(".card"); 
-for (var i = 0; i < studentCards.length; i++) {
-  var studentCard = studentCards[i];
-  var birthdateElement = studentCard.querySelector("#Sbday"); 
-  var ageElement = studentCard.querySelector("#Sage"); 
-  if (birthdateElement) {
-    var birthdateText = birthdateElement.textContent.trim();
-    var birthdateParts = birthdateText.split(/[,:\s]+/);
-    var monthText = monthTextToNumber(birthdateParts[1]); 
-    var day = parseInt(birthdateParts[2]); 
-    var year = birthdateParts[3];
+// Function to update the card elements
+function updateCard(cardId, name, birthdate) {
+  const card = document.getElementById(cardId);
+  if (card) {
+      card.querySelector('.Sname').innerText = name;
+      card.querySelector('.Sbday').innerText = `Birthdate: ${birthdate}`;
+      // Calculate and set age if needed
+      const birthDateObj = new Date(birthdate.split('/').reverse().join('-'));
+      const age = new Date().getFullYear() - birthDateObj.getFullYear();
+      card.querySelector('.Sage').innerText = `Age: ${age}`;
+  }
+}
 
-    var today = new Date();
-    var age = today.getFullYear() - year;
-    var month = today.getMonth() - new Date(year, monthText - 1).getMonth();
+// Function to format name for card display
+function formatNameForCard(name) {
+  // Assuming the format "Lastname, Firstname, Othername"
+  const parts = name.split(', ');
+  if (parts.length >= 2) {
+      const firstname = parts[1];
+      const lastname = parts[0];
+      const othername = parts.slice(2).join(' ');
+      return `${firstname} ${othername.charAt(0)}. ${lastname}`;
+  }
+  return name; // Return original if format doesn't match
+}
 
-    if (month < 0 || (month === 0 && today.getDate() < day)) {
-      age--;
-    }
+// Function to show a specific card and hide others
+function showCard(cardId) {
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+      card.classList.remove('active-card');
+  });
 
-    ageElement.innerHTML = "Age: " + age;
-  } else {
-    console.warn("Student card " + (i + 1) + " missing birthdate element.");
+  const cardToShow = document.getElementById(cardId);
+  if (cardToShow) {
+      cardToShow.classList.add('active-card');
   }
 }
 
@@ -162,8 +194,31 @@ function showFollowUp(radioId, followUpDivClass) {
 
 function hideFollowUp(followUpDivClass) {
   var followUpDiv = document.querySelector('.' + followUpDivClass);
+  
+  // Reset form elements within the followUpDiv
+  var inputs = followUpDiv.querySelectorAll('input');
+  inputs.forEach(function(input) {
+    if (input.type === 'checkbox' || input.type === 'radio') {
+      input.checked = false;
+    } else {
+      input.value = '';
+    }
+  });
+  
+  var selects = followUpDiv.querySelectorAll('select');
+  selects.forEach(function(select) {
+    select.selectedIndex = 0;
+  });
+  
+  var textareas = followUpDiv.querySelectorAll('textarea');
+  textareas.forEach(function(textarea) {
+    textarea.value = '';
+  });
+  
+  // Hide the followUpDiv
   followUpDiv.style.display = 'none';
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const currentAddressFields = {
